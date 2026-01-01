@@ -1,5 +1,4 @@
-from model.expense_database import get_all_expenses, add_expense, update_expense, delete_expense, get_today_expense, get_expense_for_date
-
+from model.expense_database import *
 #add expense
 
 def add_expense_service(title, amount, category, date, desc):
@@ -30,3 +29,9 @@ def get_expense_for_date_service(date):
 
 def get_all_expenses_service():
     return get_all_expenses()
+
+def get_total_for_current_month(month): 
+    return get_total_for_month(month)
+
+def get_total_for_current_day(day): 
+    return get_total_for_day(day)

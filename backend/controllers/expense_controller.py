@@ -63,3 +63,21 @@ def update_expense_route(id: int, expense: Expense):
 def delete_expense_route(id: int):
     delete_expense_service(id)
     return {"message": "Expense deleted"}
+
+@router.get("/expenses/total/day/{day}")
+def get_total_for_day(day: str):
+    """
+    day: 'YYYY-MM-DD'
+    """
+    total = get_total_for_current_day(day)
+    return {"date": day, "total": total}
+
+
+# --- Total for a specific month ---
+@router.get("/expenses/total/month/{month}")
+def get_total_for_month(month: str):
+    """
+    month: 'YYYY-MM'
+    """
+    total = get_total_for_current_month(month)
+    return {"month": month, "total": total}
